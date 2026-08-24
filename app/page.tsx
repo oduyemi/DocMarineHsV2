@@ -7,7 +7,6 @@ import { Header } from "@/navigation/header";
 export default function Home() {
   return (
     <main>
-      <Header />
       <Hero />
       <About/>
       <Products />
