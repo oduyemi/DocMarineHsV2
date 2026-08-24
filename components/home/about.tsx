@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   Check,
   HeartPulse,
   ShieldCheck,
-  Stethoscope,
+  Users,
 } from "lucide-react";
 
 export const About = () => {
@@ -16,32 +17,110 @@ export const About = () => {
       id="about"
       className="relative overflow-hidden bg-white px-6 py-24 lg:py-32"
     >
-      {/* =========================================================
-          BACKGROUND
-      ========================================================= */}
-
-      <div className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-sky-100/70 blur-[120px]" />
-
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[420px] w-[420px] rounded-full bg-cyan-50 blur-[100px]" />
-
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(14,165,233,0.035),transparent_35%)]" />
-
-      {/* =========================================================
-          CONTAINER
-      ========================================================= */}
-
+      <div className="pointer-events-none absolute -right-48 -top-48 h-[600px] w-[600px] rounded-full bg-sky-100/60 blur-[130px]" />
+      <div className="pointer-events-none absolute -bottom-48 -left-48 h-[500px] w-[500px] rounded-full bg-cyan-50 blur-[120px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-50/40 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl">
-        <div className="grid items-center gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-24">
-
-          {/* =====================================================
-              LEFT — STORY
-          ===================================================== */}
-
+        <div className="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{
               duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="relative"
+          >
+            {/* Decorative frame */}
+            <div className="absolute -inset-4 rounded-[2.5rem] border border-sky-100" />
+
+            {/* Main image */}
+            <div className="relative overflow-hidden rounded-[2rem] bg-slate-100 shadow-[0_30px_80px_rgba(15,23,42,0.14)]">
+              <div className="relative aspect-[4/5] sm:aspect-[5/6]">
+                <Image
+                  src="/images/about/xray.jpg"
+                  alt="DocMarine healthcare professionals"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+
+                {/* Image overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent" />
+
+                {/* Image caption */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white backdrop-blur-md ring-1 ring-white/20">
+                      <Users className="h-5 w-5" />
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-white">
+                        People behind the care
+                      </p>
+
+                      <p className="mt-0.5 text-xs text-slate-300">
+                        Professional healthcare delivery
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.35,
+              }}
+              viewport={{ once: true }}
+              className="
+                absolute
+                -bottom-7
+                -right-4
+                w-[230px]
+                rounded-2xl
+                border border-slate-200
+                bg-white
+                p-5
+                shadow-[0_20px_50px_rgba(15,23,42,0.14)]
+                sm:-right-7
+              "
+            >
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.15em] text-sky-600">
+                    Trusted Care
+                  </p>
+
+                  <p className="mt-1 text-sm font-semibold leading-5 text-slate-900">
+                    Healthcare solutions built around people.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="absolute -left-5 top-10 hidden h-20 w-20 rounded-2xl border border-sky-200 bg-white/80 shadow-sm backdrop-blur sm:block">
+              <div className="flex h-full items-center justify-center">
+                <HeartPulse className="h-7 w-7 text-sky-500" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.1,
               ease: [0.22, 1, 0.36, 1],
             }}
             viewport={{ once: true, amount: 0.2 }}
@@ -56,171 +135,115 @@ export const About = () => {
             </div>
 
             {/* Heading */}
-            <h2 className="mt-6 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-[-0.03em] text-slate-900 sm:text-5xl">
-              Healthcare solutions built on
+            <h2 className="mt-6 max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-[-0.03em] text-slate-900 sm:text-5xl">
+              Healthcare that puts
               <span className="block mt-2 text-sky-600">
-                trust, quality and care.
+                people first.
               </span>
             </h2>
 
-            {/* Main copy */}
-            <p className="mt-7 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
-              Doc Marine Health Services LTD is a privately registered
-              healthcare company in Nigeria, dedicated to providing dependable
-              medical equipment and comprehensive healthcare solutions.
+            {/* Short introduction */}
+            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
+              DocMarine Health Services Ltd provides dependable healthcare
+              solutions for hospitals, clinics, emergency responders, and
+              organizations operating in demanding environments.
             </p>
 
-            <p className="mt-5 max-w-xl text-base leading-8 text-slate-500">
-              We work with hospitals, clinics, emergency responders, and
-              healthcare institutions to provide reliable tools and solutions
-              designed for demanding clinical environments.
+            <p className="mt-5 max-w-xl text-base leading-7 text-slate-500">
+              Our work brings together professional expertise, reliable
+              equipment, and a commitment to safer, healthier workplaces.
             </p>
 
-            {/* Trust points */}
-            <div className="mt-8 space-y-3">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               <TrustPoint>
-                Quality-focused medical equipment
+                Professional healthcare expertise
               </TrustPoint>
 
               <TrustPoint>
-                Solutions for clinical and emergency environments
+                Quality-focused solutions
               </TrustPoint>
 
               <TrustPoint>
-                Professional support for healthcare institutions
+                Emergency-ready support
+              </TrustPoint>
+
+              <TrustPoint>
+                Client-focused service
               </TrustPoint>
             </div>
 
-            {/* CTA */}
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap items-center gap-5">
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:text-sky-600 hover:shadow-md"
+                className="
+                  group
+                  inline-flex
+                  items-center
+                  gap-3
+                  rounded-xl
+                  bg-slate-950
+                  px-6
+                  py-3.5
+                  text-sm
+                  font-semibold
+                  text-white
+                  shadow-[0_12px_30px_rgba(15,23,42,0.15)]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-0.5
+                  hover:bg-sky-600
+                  hover:shadow-[0_15px_35px_rgba(14,165,233,0.2)]
+                "
               >
                 Discover Our Story
 
-                <ArrowRight className="h-4 w-4 text-sky-500 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight
+                  className="
+                    h-4 w-4
+                    text-sky-400
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                    group-hover:text-white
+                  "
+                />
               </Link>
-            </div>
-          </motion.div>
 
-          {/* =====================================================
-              RIGHT — CAPABILITIES
-          ===================================================== */}
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
 
-          <motion.div
-            initial={{ opacity: 0, x: 35 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            viewport={{ once: true, amount: 0.2 }}
-            className="relative"
-          >
-            {/* Decorative frame */}
-            <div className="absolute -inset-4 rounded-[2rem] border border-sky-100/80" />
-
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-50 p-5 shadow-[0_25px_70px_rgba(15,23,42,0.08)] sm:p-7">
-
-              {/* Header panel */}
-              <div className="relative overflow-hidden rounded-2xl bg-slate-950 p-7 text-white sm:p-8">
-                {/* Background glow */}
-                <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-sky-500/20 blur-3xl" />
-
-                <div className="relative">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-sky-400/20 bg-sky-400/10 text-sky-400">
-                      <HeartPulse className="h-5 w-5" />
-                    </div>
-
-                    <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-400">
-                      Healthcare Partner
-                    </span>
-                  </div>
-
-                  <h3 className="mt-7 text-2xl font-bold tracking-tight sm:text-3xl">
-                    Built around the needs of healthcare professionals.
-                  </h3>
-
-                  <p className="mt-4 max-w-lg text-sm leading-6 text-slate-400">
-                    From medical equipment to critical-care solutions, we focus
-                    on dependable products that support better healthcare
-                    delivery.
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature cards */}
-              <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                <FeatureItem
-                  icon={<ShieldCheck className="h-5 w-5" />}
-                  title="Compliance"
-                  text="Registered and committed to professional standards."
-                />
-
-                <FeatureItem
-                  icon={<HeartPulse className="h-5 w-5" />}
-                  title="Critical Care"
-                  text="Solutions for emergency and demanding environments."
-                />
-
-                <FeatureItem
-                  icon={<Stethoscope className="h-5 w-5" />}
-                  title="Quality"
-                  text="Equipment selected for reliable clinical use."
-                />
-              </div>
-
-              {/* Bottom statement */}
-              <div className="mt-5 flex items-center gap-4 rounded-2xl border border-sky-100 bg-white px-5 py-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">
-                    Dependability when it matters most.
-                  </p>
-
-                  <p className="mt-0.5 text-xs text-slate-500">
-                    Supporting healthcare delivery across Nigeria.
-                  </p>
-                </div>
+                <span>Serving healthcare needs across Nigeria</span>
               </div>
             </div>
 
-            {/* Floating statistic */}
-            <motion.div
-              animate={{
-                y: [0, -7, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute -bottom-6 -right-4 hidden rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-[0_15px_45px_rgba(15,23,42,0.12)] sm:block lg:-right-7"
-            >
-              <p className="text-2xl font-extrabold tracking-tight text-slate-900">
-                24/7
-              </p>
+            {/* =================================================
+                SIMPLE CREDIBILITY ROW
+            ================================================= */}
 
-              <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">
-                Emergency Support
-              </p>
-            </motion.div>
+            <div className="mt-12 border-t border-slate-200 pt-7">
+              <div className="flex flex-wrap gap-x-10 gap-y-5">
+                <MiniStat
+                  value="Professional"
+                  label="Healthcare Focus"
+                />
+
+                <MiniStat
+                  value="Nigeria"
+                  label="Local Expertise"
+                />
+
+                <MiniStat
+                  value="24/7"
+                  label="Emergency Support"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
   );
 };
-
-/* ===============================================================
-   TRUST POINT
-================================================================ */
 
 const TrustPoint = ({
   children,
@@ -230,7 +253,10 @@ const TrustPoint = ({
   return (
     <div className="flex items-center gap-3">
       <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600">
-        <Check className="h-3 w-3" strokeWidth={3} />
+        <Check
+          className="h-3 w-3"
+          strokeWidth={3}
+        />
       </div>
 
       <span className="text-sm font-medium text-slate-600">
@@ -240,42 +266,22 @@ const TrustPoint = ({
   );
 };
 
-/* ===============================================================
-   FEATURE ITEM
-================================================================ */
-
-const FeatureItem = ({
-  icon,
-  title,
-  text,
+const MiniStat = ({
+  value,
+  label,
 }: {
-  icon: React.ReactNode;
-  title: string;
-  text: string;
+  value: string;
+  label: string;
 }) => {
   return (
-    <motion.div
-      whileHover={{
-        y: -3,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 20,
-      }}
-      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-md"
-    >
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
-        {icon}
-      </div>
-
-      <h3 className="mt-4 text-sm font-bold text-slate-900">
-        {title}
-      </h3>
-
-      <p className="mt-2 text-xs leading-5 text-slate-500">
-        {text}
+    <div>
+      <p className="text-sm font-bold text-slate-900">
+        {value}
       </p>
-    </motion.div>
+
+      <p className="mt-1 text-xs text-slate-400">
+        {label}
+      </p>
+    </div>
   );
 };
