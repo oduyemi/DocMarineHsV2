@@ -12,7 +12,7 @@ export const RequestDetailDialog = ({
   product,
   onClose,
 }: {
-  product?: { name: string };
+  product?: { name: string } | null;
   onClose: () => void;
 }) => {
   const [loading, setLoading] = useState(false);
