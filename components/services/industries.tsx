@@ -9,42 +9,42 @@ const industries = [
     title: "Offshore Oil & Gas",
     description:
       "Medical personnel, emergency response, occupational health, and healthcare support for offshore platforms and exploration operations.",
-    image: "/images/services/offshore-oil-gas.jpg",
+    image: "/images/offshore_oil.JPG",
   },
   {
     icon: Ship,
     title: "Marine & Shipping",
     description:
       "Healthcare services for vessels, ports, marine operators, crew medical assessments, and medical evacuation coordination.",
-    image: "/images/services/marine-shipping.jpg",
+    image: "/images/shipping.jpg",
   },
   {
     icon: Factory,
     title: "Energy & Petrochemical",
     description:
       "Occupational health programs, emergency preparedness, workforce medical surveillance, and clinical support for energy facilities.",
-    image: "/images/services/energy-petrochemical.jpg",
+    image: "/images/energy.jpg",
   },
   {
     icon: HardHat,
     title: "Construction & Engineering",
     description:
       "Standby medical teams, first aid coverage, project medical planning, and health risk management for high-risk construction sites.",
-    image: "/images/services/construction-engineering.jpg",
+    image: "/images/construction.jpg",
   },
   {
     icon: Building2,
     title: "Manufacturing Industries",
     description:
       "Industrial healthcare, employee wellness initiatives, statutory medical examinations, and workplace health management.",
-    image: "/images/services/manufacturing.jpg",
+    image: "/images/manufacturing.jpg",
   },
   {
     icon: Building2,
     title: "Corporate Institutions",
     description:
       "Corporate clinics, executive health screening, preventive healthcare programs, and occupational medical consultancy.",
-    image: "/images/services/corporate-healthcare.jpg",
+    image: "/images/corporate.jpg",
   },
 ];
 
