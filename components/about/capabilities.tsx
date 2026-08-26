@@ -16,6 +16,7 @@ import {
   Cross
 } from "lucide-react";
 
+
 const capabilities = [
   {
     number: "01",
@@ -67,6 +68,7 @@ const capabilities = [
   },
 ];
 
+
 const environments = [
   {
     icon: Waves,
@@ -93,6 +95,7 @@ const environments = [
     image: "/images/about/capabilities/hse.jpg",
   },
 ];
+
 
 export const Capabilities = () => {
   return (
@@ -166,17 +169,13 @@ export const Capabilities = () => {
                   whileHover={{ y: -4 }}
                   className="group relative h-56 overflow-hidden rounded-2xl border border-white/10"
                 >
-                  {/* Image */}
                   <img
                     src={environment.image}
                     alt={`${environment.title} healthcare operations`}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
-
-                  {/* Content */}
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <div className="flex items-end justify-between gap-4">
                       <div>
@@ -219,8 +218,6 @@ export const Capabilities = () => {
           className="mt-12 overflow-hidden rounded-[2rem] border border-sky-400/20 bg-white/[0.045]"
         >
           <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
-
-            {/* Visual */}
             <div className="relative min-h-[340px] overflow-hidden lg:min-h-[430px]">
               <img
                 src="/images/about/capabilities/occupational.jpg"
@@ -229,8 +226,6 @@ export const Capabilities = () => {
               />
 
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950/30 via-transparent to-slate-950/70 lg:bg-gradient-to-r" />
-
-              {/* Floating badge */}
               <div className="absolute left-6 top-6 rounded-xl border border-white/15 bg-slate-950/70 px-4 py-3 backdrop-blur-md">
                 <div className="flex items-center gap-3">
                   <HeartPulse className="h-4 w-4 text-sky-400" />
@@ -247,7 +242,6 @@ export const Capabilities = () => {
                 </div>
               </div>
 
-              {/* Image caption */}
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-emerald-400" />
@@ -259,7 +253,6 @@ export const Capabilities = () => {
               </div>
             </div>
 
-            {/* Content */}
             <div className="relative flex flex-col justify-center p-8 sm:p-10 lg:p-12">
               <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-sky-500/10 blur-3xl" />
 
@@ -335,7 +328,6 @@ export const Capabilities = () => {
                   hover:bg-white/[0.055]
                 "
               >
-                {/* Hover glow */}
                 <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-sky-500/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative">
                   <div className="flex items-start justify-between">

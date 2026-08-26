@@ -67,38 +67,16 @@ export const ContactUs = () => {
       id="contact"
       className="relative overflow-hidden bg-slate-950 px-6 py-24 text-white sm:py-28 lg:py-36"
     >
-      {/* =========================================================
-          BACKGROUND SYSTEM
-      ========================================================= */}
-
-      {/* Main blue glow */}
       <div className="pointer-events-none absolute -left-64 -top-64 h-[700px] w-[700px] rounded-full bg-sky-500/[0.08] blur-[150px]" />
-
-      {/* Secondary cyan glow */}
       <div className="pointer-events-none absolute -bottom-64 -right-64 h-[700px] w-[700px] rounded-full bg-cyan-400/[0.07] blur-[150px]" />
-
-      {/* Central glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.035] blur-[130px]" />
-
-      {/* Grid */}
-      <div
-        className="
+      <div className="
           pointer-events-none absolute inset-0 opacity-[0.035]
           bg-[linear-gradient(rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.7)_1px,transparent_1px)]
           bg-[size:56px_56px]
         "
       />
-
-      {/* =========================================================
-          CONTAINER
-      ========================================================= */}
-
       <div className="relative mx-auto max-w-7xl">
-
-        {/* =======================================================
-            SECTION INTRO
-        ======================================================= */}
-
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -121,8 +99,6 @@ export const ContactUs = () => {
             </span>
           </div>
 
-          {/* Heading */}
-
           <h2 className="mt-7 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
             Let&apos;s find the right
             <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 bg-clip-text text-transparent">
@@ -137,16 +113,7 @@ export const ContactUs = () => {
           </p>
         </motion.div>
 
-        {/* =======================================================
-            MAIN GRID
-        ======================================================= */}
-
         <div className="mt-16 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10">
-
-          {/* =====================================================
-              LEFT COLUMN
-          ===================================================== */}
-
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -157,12 +124,7 @@ export const ContactUs = () => {
             viewport={{ once: true }}
             className="space-y-5"
           >
-            {/* ===================================================
-                CONTACT INFORMATION CARD
-            =================================================== */}
-
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-7 backdrop-blur-xl sm:p-8">
-              {/* Card glow */}
               <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-sky-400/10 blur-3xl" />
 
               <div className="relative">
@@ -241,10 +203,6 @@ export const ContactUs = () => {
               </div>
             </div>
 
-            {/* ===================================================
-                SUPPORT FEATURES
-            =================================================== */}
-
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
 
               <SupportCard
@@ -260,10 +218,6 @@ export const ContactUs = () => {
               />
 
             </div>
-
-            {/* ===================================================
-                CONTACT PAGE LINK
-            =================================================== */}
 
             <Link
               href="/contact"
@@ -293,10 +247,6 @@ export const ContactUs = () => {
             </Link>
           </motion.div>
 
-          {/* =====================================================
-              RIGHT — ENQUIRY FORM
-          ===================================================== */}
-
           <motion.div
             initial={{ opacity: 0, x: 35 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -308,16 +258,8 @@ export const ContactUs = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            {/* Outer glow */}
-
             <div className="pointer-events-none absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-sky-400/20 via-transparent to-blue-500/10 blur-xl" />
-
-            {/* Form card */}
-
             <div className="relative rounded-[2rem] border border-white/10 bg-white p-6 shadow-[0_30px_100px_rgba(0,0,0,0.35)] sm:p-8 lg:p-10">
-
-              {/* Form heading */}
-
               <div className="flex flex-col gap-5 border-b border-slate-100 pb-7 sm:flex-row sm:items-start sm:justify-between">
 
                 <div>
@@ -340,18 +282,12 @@ export const ContactUs = () => {
                 </div>
               </div>
 
-              {/* =================================================
-                  FORM
-              ================================================= */}
-
               <form
                 action="https://formspree.io/f/mkozydgn"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="mt-8 space-y-5"
               >
-                {/* Formspree */}
-
                 <input
                   type="hidden"
                   name="_subject"
@@ -365,8 +301,6 @@ export const ContactUs = () => {
                   tabIndex={-1}
                   autoComplete="off"
                 />
-
-                {/* Name + Email */}
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Input
@@ -385,8 +319,6 @@ export const ContactUs = () => {
                   />
                 </div>
 
-                {/* Organization */}
-
                 <Input
                   name="organization"
                   label="Organization"
@@ -394,8 +326,6 @@ export const ContactUs = () => {
                   required={false}
                   disabled={loading}
                 />
-
-                {/* Enquiry */}
 
                 <Select
                   name="enquiry"
@@ -427,16 +357,12 @@ export const ContactUs = () => {
                   </option>
                 </Select>
 
-                {/* Message */}
-
                 <Textarea
                   name="message"
                   label="Your Message"
                   placeholder="Tell us about your requirements, products of interest, quantity, or any other relevant information..."
                   disabled={loading}
                 />
-
-                {/* Submit */}
 
                 <Button
                   type="submit"
@@ -473,8 +399,6 @@ export const ContactUs = () => {
                     </span>
                   )}
                 </Button>
-
-                {/* Status */}
 
                 <AnimatePresence mode="wait">
                   {status === "success" && (
@@ -534,8 +458,6 @@ export const ContactUs = () => {
                   )}
                 </AnimatePresence>
 
-                {/* Privacy / response */}
-
                 <div className="flex items-center justify-center gap-2 pt-1 text-center text-[11px] text-slate-400">
                   <ShieldCheck className="h-3.5 w-3.5" />
 
@@ -547,10 +469,6 @@ export const ContactUs = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* =======================================================
-            BOTTOM TRUST STRIP
-        ======================================================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -586,10 +504,6 @@ export const ContactUs = () => {
     </section>
   );
 };
-
-/* ===============================================================
-   CONTACT ITEM
-================================================================ */
 
 const ContactItem = ({
   icon,
@@ -630,10 +544,6 @@ const ContactItem = ({
   );
 };
 
-/* ===============================================================
-   SUPPORT CARD
-================================================================ */
-
 const SupportCard = ({
   icon,
   title,
@@ -662,10 +572,6 @@ const SupportCard = ({
   );
 };
 
-/* ===============================================================
-   TRUST STRIP
-================================================================ */
-
 const TrustStrip = ({
   title,
   text,
@@ -685,10 +591,6 @@ const TrustStrip = ({
     </div>
   );
 };
-
-/* ===============================================================
-   INPUT
-================================================================ */
 
 const Input = ({
   label,
@@ -742,10 +644,6 @@ const Input = ({
   );
 };
 
-/* ===============================================================
-   SELECT
-================================================================ */
-
 const Select = ({
   label,
   name,
@@ -793,10 +691,6 @@ const Select = ({
     </div>
   );
 };
-
-/* ===============================================================
-   TEXTAREA
-================================================================ */
 
 const Textarea = ({
   label,

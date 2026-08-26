@@ -12,13 +12,6 @@ import { products } from "@/data/products";
 import { ProductCard } from "./productCard";
 
 export const Products = () => {
-  /*
-   * The homepage is a product showcase.
-   * The full catalogue lives on /products.
-   *
-   * Showing the first 6 keeps the homepage focused,
-   * regardless of how large the catalogue becomes.
-   */
   const featuredProducts = products.slice(0, 6);
 
   return (
@@ -26,26 +19,10 @@ export const Products = () => {
       id="products"
       className="relative overflow-hidden bg-slate-50 px-6 py-24 lg:py-32"
     >
-      {/* =========================================================
-          BACKGROUND
-      ========================================================= */}
-
       <div className="pointer-events-none absolute -left-48 top-0 h-[500px] w-[500px] rounded-full bg-sky-200/30 blur-[120px]" />
-
       <div className="pointer-events-none absolute -bottom-48 -right-48 h-[600px] w-[600px] rounded-full bg-cyan-200/30 blur-[140px]" />
-
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(14,165,233,0.05),transparent_40%)]" />
-
-      {/* =========================================================
-          CONTAINER
-      ========================================================= */}
-
       <div className="relative mx-auto max-w-7xl">
-
-        {/* =======================================================
-            SECTION HEADER
-        ======================================================= */}
-
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +57,6 @@ export const Products = () => {
             </p>
           </div>
 
-          {/* Desktop CTA */}
           <Link
             href="/products"
             className="group hidden shrink-0 items-center gap-3 rounded-xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:text-sky-600 hover:shadow-md sm:inline-flex"
@@ -90,10 +66,6 @@ export const Products = () => {
             <ArrowRight className="h-4 w-4 text-sky-500 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </motion.div>
-
-        {/* =======================================================
-            TRUST STRIP
-        ======================================================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -117,10 +89,6 @@ export const Products = () => {
             text="Solutions across Nigeria"
           />
         </motion.div>
-
-        {/* =======================================================
-            PRODUCTS GRID
-        ======================================================= */}
 
         <motion.div
           initial="hidden"
@@ -162,10 +130,6 @@ export const Products = () => {
           ))}
         </motion.div>
 
-        {/* =======================================================
-            MOBILE / BOTTOM CTA
-        ======================================================= */}
-
         <div className="mt-10 flex justify-center sm:hidden">
           <Link
             href="/products"
@@ -177,7 +141,6 @@ export const Products = () => {
           </Link>
         </div>
 
-        {/* Desktop bottom message */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -204,10 +167,6 @@ export const Products = () => {
     </section>
   );
 };
-
-/* ===============================================================
-   TRUST BADGE
-================================================================ */
 
 const TrustBadge = ({
   icon,

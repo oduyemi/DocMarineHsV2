@@ -131,21 +131,10 @@ export const ProductCatalogue = () => {
       id="products"
       className="relative overflow-hidden bg-slate-50 py-24 lg:py-32"
     >
-      {/* =========================================================
-          BACKGROUND
-      ========================================================= */}
-
       <div className="pointer-events-none absolute -left-40 top-40 h-[30rem] w-[30rem] rounded-full bg-sky-100/60 blur-3xl" />
-
       <div className="pointer-events-none absolute -right-40 top-1/3 h-[32rem] w-[32rem] rounded-full bg-cyan-100/50 blur-3xl" />
-
       <div className="pointer-events-none absolute inset-0 opacity-[0.16] [background-image:linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)] [background-size:72px_72px]" />
-
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        {/* =========================================================
-            HEADER
-        ========================================================= */}
-
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -194,10 +183,6 @@ export const ProductCatalogue = () => {
           </div>
         </motion.div>
 
-        {/* =========================================================
-            TOOLBAR
-        ========================================================= */}
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -210,8 +195,6 @@ export const ProductCatalogue = () => {
         >
           <div className="rounded-[1.5rem] border border-slate-200 bg-white p-4 shadow-[0_10px_40px_rgba(15,23,42,0.04)] sm:p-5">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              {/* Search */}
-
               <div className="relative w-full lg:max-w-md">
                 <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
 
@@ -235,8 +218,6 @@ export const ProductCatalogue = () => {
                 )}
               </div>
 
-              {/* Mobile filter trigger */}
-
               <button
                 type="button"
                 onClick={() => setMobileFiltersOpen((open) => !open)}
@@ -253,8 +234,6 @@ export const ProductCatalogue = () => {
                 />
               </button>
 
-              {/* Desktop result count */}
-
               <div className="hidden items-center gap-2 text-sm text-slate-500 lg:flex">
                 <span className="font-bold text-slate-900">
                   {filteredProducts.length}
@@ -265,8 +244,6 @@ export const ProductCatalogue = () => {
                   : "products available"}
               </div>
             </div>
-
-            {/* Category filters */}
 
             <div
               className={`${
@@ -298,10 +275,6 @@ export const ProductCatalogue = () => {
           </div>
         </motion.div>
 
-        {/* =========================================================
-            RESULTS SUMMARY
-        ========================================================= */}
-
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate-500">
             Showing{" "}
@@ -332,10 +305,6 @@ export const ProductCatalogue = () => {
           )}
         </div>
 
-        {/* =========================================================
-            PRODUCT GRID
-        ========================================================= */}
-
         {filteredProducts.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((product, index) => (
@@ -353,11 +322,6 @@ export const ProductCatalogue = () => {
             onClear={clearSearch}
           />
         )}
-
-        {/* =========================================================
-            BOTTOM INFORMATION STRIP
-        ========================================================= */}
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -402,10 +366,6 @@ export const ProductCatalogue = () => {
         </motion.div>
       </div>
 
-      {/* =========================================================
-          REQUEST INFORMATION DIALOG
-      ========================================================= */}
-
       <AnimatePresence>
         {requestOpen && (
           <RequestDetailDialog
@@ -420,10 +380,6 @@ export const ProductCatalogue = () => {
     </section>
   );
 };
-
-/* ===============================================================
-   PRODUCT CARD
-================================================================ */
 
 const ProductCard = ({
   product,
@@ -447,10 +403,6 @@ const ProductCard = ({
       whileHover={{ y: -6 }}
       className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_8px_35px_rgba(15,23,42,0.035)] transition-all duration-300 hover:border-sky-200 hover:shadow-[0_22px_60px_rgba(14,165,233,0.09)]"
     >
-      {/* =========================================================
-          IMAGE
-      ========================================================= */}
-
       <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
         <Image
           src={product.image}
@@ -460,19 +412,12 @@ const ProductCard = ({
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
         />
 
-        {/* Image overlay */}
-
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent opacity-60" />
-
-        {/* Product number */}
-
         <div className="absolute left-4 top-4 flex h-8 min-w-8 items-center justify-center rounded-lg border border-white/20 bg-slate-950/65 px-2 backdrop-blur-md">
           <span className="text-[10px] font-bold tracking-[0.15em] text-white">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
-
-        {/* Quality badge */}
 
         <div className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-white/90 px-2.5 py-1.5 backdrop-blur-md">
           <CheckCircle2 className="h-3 w-3 text-sky-600" />
@@ -482,10 +427,6 @@ const ProductCard = ({
           </span>
         </div>
       </div>
-
-      {/* =========================================================
-          CONTENT
-      ========================================================= */}
 
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-lg font-bold leading-7 tracking-tight text-slate-950">
@@ -517,10 +458,6 @@ const ProductCard = ({
     </motion.article>
   );
 };
-
-/* ===============================================================
-   EMPTY STATE
-================================================================ */
 
 const EmptyState = ({
   search,

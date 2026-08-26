@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   Activity,
   ArrowRight,
-  Baby,
   BedDouble,
   BriefcaseMedical,
   Cross,
@@ -107,6 +106,7 @@ const accentStyles = {
   },
 };
 
+
 export const ProductCategories = () => {
     const [requestOpen, setRequestOpen] = useState(false);
 
@@ -186,15 +186,11 @@ export const ProductCategories = () => {
                     whileHover={{ y: -6 }}
                     className={`group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.035)] transition-all duration-300 hover:shadow-[0_20px_55px_rgba(14,165,233,0.08)] ${styles.hover}`}
                 >
-                    {/* Glow */}
-
                     <div
                     className={`pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100 ${styles.glow}`}
                     />
 
                     <div className="relative">
-                    {/* Icon + number */}
-
                     <div className="flex items-start justify-between">
                         <div
                         className={`flex h-12 w-12 items-center justify-center rounded-2xl ring-1 transition-all duration-300 group-hover:scale-105 ${styles.icon}`}
@@ -207,8 +203,6 @@ export const ProductCategories = () => {
                         </span>
                     </div>
 
-                    {/* Content */}
-
                     <h3 className="mt-7 text-lg font-bold tracking-tight text-slate-900">
                         {category.title}
                     </h3>
@@ -216,8 +210,6 @@ export const ProductCategories = () => {
                     <p className="mt-3 min-h-[96px] text-sm leading-7 text-slate-600">
                         {category.description}
                     </p>
-
-                    {/* Product type */}
 
                     <div className="mt-6 flex items-center gap-2">
                         <span
@@ -228,8 +220,6 @@ export const ProductCategories = () => {
                         {category.products}
                         </span>
                     </div>
-
-                    {/* Bottom action */}
 
                     <div className="mt-7 border-t border-slate-100 pt-5">
                         <button

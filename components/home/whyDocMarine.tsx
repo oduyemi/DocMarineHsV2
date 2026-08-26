@@ -55,15 +55,10 @@ const reasons = [
 export const WhyChooseUs = () => {
   return (
     <section className="relative overflow-hidden bg-white py-24 lg:py-32">
-      {/* Background accents */}
       <div className="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-sky-100/60 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -left-40 h-[28rem] w-[28rem] rounded-full bg-cyan-50 blur-3xl" />
-
-      {/* Subtle grid */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] [background-size:80px_80px] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]" />
-
       <div className="relative mx-auto max-w-7xl px-6">
-        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +89,6 @@ export const WhyChooseUs = () => {
           </p>
         </motion.div>
 
-        {/* FEATURE AREA */}
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
@@ -113,12 +107,9 @@ export const WhyChooseUs = () => {
                 whileHover={{ y: -5 }}
                 className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition-shadow duration-300 hover:border-sky-200 hover:shadow-[0_20px_50px_rgba(14,165,233,0.10)]"
               >
-                {/* Number */}
                 <div className="absolute right-6 top-5 text-xs font-bold tracking-widest text-slate-200 transition-colors duration-300 group-hover:text-sky-100">
                   {reason.number}
                 </div>
-
-                {/* Icon */}
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-sky-100 bg-sky-50 text-sky-600 transition-all duration-300 group-hover:border-sky-200 group-hover:bg-sky-600 group-hover:text-white">
                   <Icon className="h-5 w-5" />
                 </div>
@@ -131,14 +122,12 @@ export const WhyChooseUs = () => {
                   {reason.text}
                 </p>
 
-                {/* Bottom accent */}
                 <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-cyan-400 transition-all duration-500 group-hover:w-full" />
               </motion.article>
             );
           })}
         </div>
 
-        {/* OPERATIONAL TRUST PANEL */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +162,6 @@ export const WhyChooseUs = () => {
               </p>
             </div>
 
-            {/* Contact actions */}
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link
                 href="mailto:info@docmarinehs.com"

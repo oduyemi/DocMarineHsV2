@@ -68,7 +68,6 @@ export const HomeCTA = () => {
             </div>
 
             <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
-              {/* Primary */}
               <motion.button
                 type="button"
                 onClick={() => setRequestOpen(true)}
@@ -121,7 +120,6 @@ export const HomeCTA = () => {
                 Email Our Team
               </motion.a>
 
-              {/* Phone */}
               <motion.a
                 href="tel:+2348034048799"
                 whileHover={{ scale: 1.03 }}

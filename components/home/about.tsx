@@ -1,15 +1,9 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Check,
-  HeartPulse,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Check, HeartPulse, ShieldCheck, Users } from "lucide-react";
+
 
 export const About = () => {
   return (
@@ -215,10 +209,6 @@ export const About = () => {
                 <span>Serving healthcare needs across Nigeria</span>
               </div>
             </div>
-
-            {/* =================================================
-                SIMPLE CREDIBILITY ROW
-            ================================================= */}
 
             <div className="mt-12 border-t border-slate-200 pt-7">
               <div className="flex flex-wrap gap-x-10 gap-y-5">

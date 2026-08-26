@@ -82,12 +82,8 @@ export const VisionMission = () => {
             viewport={{ once: true }}
             className="group relative overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white shadow-[0_25px_70px_rgba(15,23,42,0.18)] sm:p-10 lg:p-12"
           >
-            {/* Decorative glow */}
             <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-sky-500/20 blur-3xl transition-transform duration-700 group-hover:scale-110" />
-
             <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
-
-            {/* Decorative circle */}
             <div className="pointer-events-none absolute right-8 top-8 hidden h-28 w-28 rounded-full border border-white/10 sm:block">
               <div className="absolute inset-4 rounded-full border border-white/10" />
 
@@ -97,7 +93,6 @@ export const VisionMission = () => {
             </div>
 
             <div className="relative">
-              {/* Label */}
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-400/10 text-sky-400">
                   <Compass className="h-5 w-5" />
@@ -114,7 +109,6 @@ export const VisionMission = () => {
                 </div>
               </div>
 
-              {/* Vision statement */}
               <blockquote className="mt-12 max-w-xl text-2xl font-semibold leading-[1.45] tracking-tight text-white sm:text-3xl">
                 “To be the preferred provider of integrated healthcare and
                 occupational medical services for the offshore, marine, and
@@ -145,9 +139,7 @@ export const VisionMission = () => {
             className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-10 lg:p-12"
           >
             <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-sky-50 blur-3xl" />
-
             <div className="relative">
-              {/* Label */}
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
                   <Crosshair className="h-5 w-5" />
@@ -164,7 +156,6 @@ export const VisionMission = () => {
                 </div>
               </div>
 
-              {/* Mission statement */}
               <p className="mt-12 text-xl font-semibold leading-[1.6] tracking-tight text-slate-900 sm:text-2xl">
                 To deliver world-class medical services through
                 <span className="text-sky-600"> professionalism</span>,
@@ -174,7 +165,6 @@ export const VisionMission = () => {
                 while promoting healthier and more productive workforces.
               </p>
 
-              {/* Mission pillars */}
               <div className="mt-10 space-y-3">
                 {missionPoints.map((point, index) => {
                   const Icon = point.icon;

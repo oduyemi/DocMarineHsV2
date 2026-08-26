@@ -1,17 +1,13 @@
 "use client";
-
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
-  Check,
   ChevronRight,
   HeartPulse,
   ShieldCheck,
   Stethoscope,
-  Activity,
   Cross,
-  Siren,
   Phone,
   Mail,
   Users,
@@ -19,19 +15,14 @@ import {
 } from "lucide-react";
 import { RequestDetailDialog } from "@/dialog/request-modal";
 
+
 export const Hero = () => {
   const [requestOpen, setRequestOpen] = useState(false);
 
   return (
     <section className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-slate-950 text-white">
-      {/* =========================================================
-          ATMOSPHERE
-      ========================================================= */}
-
       <div className="pointer-events-none absolute -left-40 -top-40 h-[620px] w-[620px] rounded-full bg-sky-500/15 blur-[140px]" />
-
       <div className="pointer-events-none absolute -right-40 top-1/3 h-[560px] w-[560px] rounded-full bg-cyan-500/10 blur-[140px]" />
-
       <div className="pointer-events-none absolute -bottom-60 left-1/3 h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[130px]" />
 
       {/* Grid */}
@@ -39,11 +30,6 @@ export const Hero = () => {
 
       {/* Vignette */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_15%,rgba(2,6,23,0.45)_100%)]" />
-
-      {/* =========================================================
-          DECORATIVE CROSS
-      ========================================================= */}
-
       <div className="pointer-events-none absolute right-[8%] top-[13%] hidden lg:block">
         <motion.div
           animate={{
@@ -61,17 +47,8 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* =========================================================
-          CONTENT
-      ========================================================= */}
-
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8 lg:py-28 xl:py-32">
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_0.92fr] lg:gap-20">
-
-          {/* =====================================================
-              LEFT — CONTENT
-          ===================================================== */}
-
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -128,10 +105,6 @@ export const Hero = () => {
                 for when it matters most.
               </p>
             </div>
-
-            {/* =================================================
-                ACTIONS
-            ================================================= */}
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
 
@@ -200,10 +173,6 @@ export const Hero = () => {
               </a>
             </div>
 
-            {/* =================================================
-                TRUST STRIP
-            ================================================= */}
-
             <div className="mt-12 grid max-w-2xl grid-cols-3 border-y border-white/10 py-6">
 
               <HeroStat
@@ -226,10 +195,6 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* =====================================================
-              RIGHT — HUMAN IMAGE
-          ===================================================== */}
-
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -250,7 +215,7 @@ export const Hero = () => {
             <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-900 shadow-[0_35px_100px_rgba(0,0,0,0.4)]">
               <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/6] lg:aspect-[4/5]">
                 <img
-                  src="/images/about/abthero.jpg"
+                  src="/images/hero.jpg"
                   alt="DocMarine healthcare professional providing medical care"
                   className="absolute inset-0 h-full w-full object-cover object-center"
                 />

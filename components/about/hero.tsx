@@ -1,8 +1,6 @@
 "use client";
-
 import { motion } from "framer-motion";
-import {
-  ArrowDown,
+import {  
   ArrowRight,
   Building2,
   CheckCircle2,
@@ -15,41 +13,21 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+
 export const AboutHero = () => {
   return (
     <section className="relative min-h-[720px] overflow-hidden bg-slate-950 text-white">
-      {/* =========================================================
-          BACKGROUND
-      ========================================================= */}
-
       <div className="absolute inset-0">
-        {/* Atmospheric glows */}
         <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-sky-500/20 blur-[140px]" />
-
         <div className="absolute -right-40 top-1/3 h-[520px] w-[520px] rounded-full bg-cyan-500/10 blur-[140px]" />
-
         <div className="absolute -bottom-60 left-1/3 h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[130px]" />
-
-        {/* Grid */}
         <div className="absolute inset-0 opacity-[0.045] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:64px_64px]" />
-
-        {/* Radial fade */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_40%,transparent_0%,rgba(2,6,23,0.35)_45%,rgba(2,6,23,0.96)_100%)]" />
-
-        {/* Bottom fade */}
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 to-transparent" />
       </div>
 
-      {/* =========================================================
-          MAIN CONTAINER
-      ========================================================= */}
-
       <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl items-center px-6 py-24 lg:px-8 lg:py-28">
         <div className="grid w-full items-center gap-16 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
-          {/* =====================================================
-              LEFT — CONTENT
-          ===================================================== */}
-
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             animate={{ opacity: 1, x: 0 }}
@@ -83,7 +61,6 @@ export const AboutHero = () => {
               </p>
             </div>
 
-            {/* Actions */}
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="#company-overview"
@@ -103,10 +80,6 @@ export const AboutHero = () => {
                 <ArrowRight className="h-4 w-4 text-sky-400 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
-
-            {/* =================================================
-                COMPANY TRUST STRIP
-            ================================================= */}
 
             <div className="mt-12 grid max-w-2xl grid-cols-2 border-y border-white/10 py-6 sm:grid-cols-3">
               <HeroTrust
@@ -132,10 +105,6 @@ export const AboutHero = () => {
             </div>
           </motion.div>
 
-          {/* =====================================================
-              RIGHT — HUMAN-CENTRED VISUAL
-          ===================================================== */}
-
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -147,7 +116,6 @@ export const AboutHero = () => {
             className="relative hidden lg:block"
           >
             <div className="relative mx-auto max-w-[500px]">
-              {/* Ambient glow */}
               <div className="absolute -inset-10 rounded-[4rem] bg-sky-500/10 blur-3xl" />
               <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.045] p-2 shadow-[0_30px_100px_rgba(0,0,0,0.4)] backdrop-blur-xl">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
@@ -160,13 +128,8 @@ export const AboutHero = () => {
                     className="object-cover object-center"
                   />
 
-                  {/* Image overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-
-                  {/* Soft blue tint */}
                   <div className="absolute inset-0 bg-sky-950/10 mix-blend-multiply" />
-
-                  {/* Image content */}
                   <div className="absolute inset-x-0 bottom-0 p-7">
                     <div className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -190,10 +153,6 @@ export const AboutHero = () => {
                   </div>
                 </div>
               </div>
-
-              {/* =================================================
-                  FLOATING PEOPLE CARD
-              ================================================= */}
 
               <motion.div
                 initial={{
@@ -229,10 +188,6 @@ export const AboutHero = () => {
                 </div>
               </motion.div>
 
-              {/* =================================================
-                  FLOATING MEDICAL CARD
-              ================================================= */}
-
               <motion.div
                 animate={{
                   y: [0, -7, 0],
@@ -261,10 +216,6 @@ export const AboutHero = () => {
                 </div>
               </motion.div>
 
-              {/* =================================================
-                  SMALL STATUS BADGE
-              ================================================= */}
-
               <motion.div
                 initial={{
                   opacity: 0,
@@ -290,10 +241,6 @@ export const AboutHero = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* =========================================================
-          SCROLL INDICATOR
-      ========================================================= */}
 
       <motion.a
         href="#company-overview"
@@ -323,10 +270,6 @@ export const AboutHero = () => {
     </section>
   );
 };
-
-/* ===============================================================
-   TRUST ITEM
-================================================================ */
 
 const HeroTrust = ({
   icon,

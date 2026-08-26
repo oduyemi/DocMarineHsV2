@@ -80,13 +80,6 @@ export const ProductModal = ({
               >
                 Request Information
               </Button>  
-              <Button
-                variant="outline"
-                onClick={onClose}
-                className="h-11 rounded-full border-white/20 text-gray-900"
-              >
-                Close
-              </Button>
               </div>
             </div>
           </div>

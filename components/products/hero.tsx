@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   Activity,
@@ -54,8 +53,6 @@ export const ProductsHero = () => {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            {/* Eyebrow */}
-
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,8 +73,6 @@ export const ProductsHero = () => {
               </span>
             </motion.div>
 
-            {/* Heading */}
-
             <h1 className="mt-8 max-w-4xl text-5xl font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-6xl lg:text-6xl xl:text-7xl">
               Equipment built for
               <span className="mt-2 block bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 bg-clip-text text-transparent">
@@ -85,16 +80,12 @@ export const ProductsHero = () => {
               </span>
             </h1>
 
-            {/* Description */}
-
             <p className="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg lg:text-xl">
               Explore professional-grade medical equipment and healthcare
               supplies selected to support hospitals, clinics, healthcare
               professionals, emergency teams, and demanding clinical
               environments across Nigeria.
             </p>
-
-            {/* Supporting statement */}
 
             <div className="mt-7 flex items-start gap-3 text-sm text-slate-400">
               <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-400/10 text-sky-400">
@@ -188,8 +179,6 @@ export const ProductsHero = () => {
                     <Stethoscope className="h-6 w-6" />
                   </div>
                 </div>
-
-                {/* Search-style field */}
 
                 <div className="mt-7 flex items-center gap-3 rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3">
                   <Search className="h-4 w-4 text-slate-500" />

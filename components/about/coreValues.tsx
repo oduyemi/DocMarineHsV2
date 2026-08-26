@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   Award,
@@ -142,8 +141,6 @@ export const CoreValues = () => {
           viewport={{ once: true }}
           className="relative mt-16 overflow-hidden rounded-[2rem] bg-slate-950"
         >
-          {/* Image */}
-
           <div className="absolute inset-0">
             <img
               src="/images/about/medecine.jpg"
@@ -152,16 +149,11 @@ export const CoreValues = () => {
             />
 
             <div className="absolute inset-0 bg-slate-950/75" />
-
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/30" />
           </div>
 
-          {/* Decorative glow */}
-
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-sky-500/20 blur-3xl" />
-
           <div className="relative grid min-h-[360px] items-end lg:min-h-[400px] lg:grid-cols-[1fr_auto]">
-
             <div className="max-w-2xl p-8 sm:p-12 lg:p-14">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-sky-400 backdrop-blur">
                 <HeartHandshake className="h-6 w-6" />
@@ -184,8 +176,6 @@ export const CoreValues = () => {
               </p>
             </div>
 
-            {/* Quote-style side panel */}
-
             <div className="hidden border-l border-white/10 px-10 py-12 lg:block">
               <p className="text-5xl font-black text-white/10">
                 “
@@ -198,10 +188,6 @@ export const CoreValues = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* =======================================================
-            VALUES
-        ======================================================= */}
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 
@@ -223,8 +209,6 @@ export const CoreValues = () => {
                   whileHover={{ y: -6 }}
                   className="group relative overflow-hidden rounded-[2rem] bg-sky-600 p-8 text-white shadow-[0_20px_60px_rgba(14,165,233,0.18)] lg:row-span-2 lg:p-10"
                 >
-                  {/* Glow */}
-
                   <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/20 blur-3xl transition-transform duration-700 group-hover:scale-125" />
 
                   <div className="relative flex h-full flex-col">
@@ -289,8 +273,6 @@ export const CoreValues = () => {
                 whileHover={{ y: -5 }}
                 className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-[0_18px_50px_rgba(14,165,233,0.10)]"
               >
-                {/* Number */}
-
                 <div className="flex items-center justify-between">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-600 transition-all duration-300 group-hover:bg-sky-600 group-hover:text-white">
                     <Icon className="h-5 w-5" />
@@ -305,8 +287,6 @@ export const CoreValues = () => {
                   {value.title}
                 </h3>
 
-                {/* Human short statement */}
-
                 <p className="mt-2 text-sm font-semibold text-sky-600">
                   {value.short}
                 </p>
@@ -320,10 +300,6 @@ export const CoreValues = () => {
             );
           })}
         </div>
-
-        {/* =======================================================
-            CLOSING STATEMENT
-        ======================================================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

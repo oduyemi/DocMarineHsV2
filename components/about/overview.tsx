@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -13,6 +12,7 @@ import {
   Stethoscope,
   ArrowUpRight,
 } from "lucide-react";
+
 
 const focusAreas = [
   {
@@ -43,22 +43,10 @@ export const CompanyOverview = () => {
       id="company-overview"
       className="relative overflow-hidden bg-white py-24 lg:py-32"
     >
-      {/* =========================================================
-          BACKGROUND
-      ========================================================= */}
-
       <div className="pointer-events-none absolute -right-40 top-0 h-[34rem] w-[34rem] rounded-full bg-sky-100/60 blur-3xl" />
-
       <div className="pointer-events-none absolute -left-40 bottom-0 h-[28rem] w-[28rem] rounded-full bg-cyan-50 blur-3xl" />
-
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(14,165,233,0.035),transparent_30%)]" />
-
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-
-        {/* =======================================================
-            SECTION INTRO
-        ======================================================= */}
-
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,13 +79,7 @@ export const CompanyOverview = () => {
           </p>
         </motion.div>
 
-        {/* =======================================================
-            STORY + IMAGE
-        ======================================================= */}
-
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-
-          {/* IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -108,7 +90,6 @@ export const CompanyOverview = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            {/* Decorative frame */}
             <div className="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-sky-100" />
 
             <div className="relative overflow-hidden rounded-[2rem] bg-slate-100 shadow-[0_25px_70px_rgba(15,23,42,0.12)]">
@@ -120,10 +101,8 @@ export const CompanyOverview = () => {
                 className="h-[480px] w-full object-cover sm:h-[560px]"
               />
 
-              {/* Image overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
 
-              {/* Image caption */}
               <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-9">
                 <div className="max-w-md">
                   <div className="flex items-center gap-2 text-sky-300">
@@ -144,7 +123,6 @@ export const CompanyOverview = () => {
               </div>
             </div>
 
-            {/* Floating year card */}
             <motion.div
               animate={{
                 y: [0, -6, 0],
@@ -166,7 +144,6 @@ export const CompanyOverview = () => {
             </motion.div>
           </motion.div>
 
-          {/* STORY */}
           <motion.div
             initial={{ opacity: 0, x: 35 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -199,7 +176,6 @@ export const CompanyOverview = () => {
               of the people and organizations being supported.
             </p>
 
-            {/* Credibility points */}
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <MiniPoint
                 icon={<ShieldCheck className="h-4 w-4" />}
@@ -222,7 +198,6 @@ export const CompanyOverview = () => {
               />
             </div>
 
-            {/* Registration */}
             <div className="mt-9 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-600 text-white shadow-lg shadow-sky-600/20">
@@ -259,10 +234,6 @@ export const CompanyOverview = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* =======================================================
-            WHAT WE DO
-        ======================================================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -305,7 +276,6 @@ export const CompanyOverview = () => {
                   whileHover={{ y: -6 }}
                   className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-[0_18px_45px_rgba(14,165,233,0.09)]"
                 >
-                  {/* Number */}
                   <span className="absolute right-5 top-5 text-xs font-bold text-slate-200 transition-colors group-hover:text-sky-100">
                     0{index + 1}
                   </span>
@@ -331,10 +301,6 @@ export const CompanyOverview = () => {
             })}
           </div>
         </motion.div>
-
-        {/* =======================================================
-            CLOSING STATEMENT
-        ======================================================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -370,10 +336,6 @@ export const CompanyOverview = () => {
     </section>
   );
 };
-
-/* ===============================================================
-   MINI POINT
-================================================================ */
 
 const MiniPoint = ({
   icon,
