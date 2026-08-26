@@ -118,38 +118,46 @@ export const Header = () => {
               }
             `}
           >
-            {/* =====================================================
-                LOGO
-            ===================================================== */}
+      {/* =====================================================
+    LOGO
+===================================================== */}
 
-            <Link
-              href="/"
-              className="group flex items-center gap-3"
-              aria-label="DocMarine Health Services home"
-            >
-              <div className="relative flex h-12 w-12 items-center justify-center">
-                {/* Logo glow */}
-                <div className="absolute inset-0 rounded-xl bg-sky-400/15 blur-lg transition-opacity duration-300 group-hover:bg-sky-400/25" />
+<Link
+  href="/"
+  className="group flex items-center gap-3"
+  aria-label="DocMarine Health Services home"
+>
+  <div className="relative flex items-center">
+    {/* Subtle logo glow */}
+    <div className="absolute inset-0 rounded-xl bg-sky-400/10 blur-xl transition-opacity duration-300 group-hover:bg-sky-400/20" />
 
-                <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <img
-                    src="/images/logo/logo.png"
-                    alt="DocMarine Health Services"
-                    className="h-full w-full object-contain p-1"
-                  />
-                </div>
-              </div>
+    <img
+      src="/images/logo/logo.png"
+      alt="DocMarine Health Services"
+      className="
+        relative
+        h-28
+        w-auto
+        max-w-[190px]
+        object-contain
+        scale-110
+        transition-transform
+        duration-300
+        group-hover:scale-[1.13]
+      "
+    />
+  </div>
 
-              <div className="hidden sm:block">
-                <p className="text-[15px] font-bold leading-tight tracking-tight text-slate-900">
-                  DocMarine
-                </p>
+  <div className="hidden sm:block">
+    <p className="text-[15px] font-bold leading-tight tracking-tight text-slate-900">
+      DocMarine
+    </p>
 
-                <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.17em] text-sky-600">
-                  Health Services
-                </p>
-              </div>
-            </Link>
+    <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.17em] text-sky-600">
+      Health Services
+    </p>
+  </div>
+</Link>
 
             {/* =====================================================
                 DESKTOP NAVIGATION
