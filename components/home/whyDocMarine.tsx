@@ -52,7 +52,7 @@ const reasons = [
   },
 ];
 
-export const WhyChooseUs = () => {
+export const OldWhyChooseUs = () => {
   return (
     <section className="relative overflow-hidden bg-white py-24 lg:py-32">
       <div className="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-sky-100/60 blur-3xl" />
