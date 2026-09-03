@@ -1,4 +1,5 @@
 "use client";
+
 import { FormEvent, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -10,20 +11,42 @@ import {
   MapPin,
   MessageSquare,
   Phone,
-  ShieldCheck,
   User,
 } from "lucide-react";
 
-
 const enquiryTypes = [
-  "Medical Equipment & Supplies",
-  "Offshore Medical Services",
-  "Occupational Health Services",
-  "General Medical Services",
-  "Emergency Preparedness & Response",
-  "Medical Equipment Maintenance",
-  "Corporate Healthcare",
-  "General Enquiry",
+  {
+    value: "medical-equipment-supplies",
+    label: "Medical Equipment & Supplies",
+  },
+  {
+    value: "offshore-medical-services",
+    label: "Offshore Medical Services",
+  },
+  {
+    value: "occupational-health-services",
+    label: "Occupational Health Services",
+  },
+  {
+    value: "general-medical-services",
+    label: "General Medical Services",
+  },
+  {
+    value: "emergency-preparedness-response",
+    label: "Emergency Preparedness & Response",
+  },
+  {
+    value: "medical-equipment-maintenance",
+    label: "Medical Equipment Maintenance",
+  },
+  {
+    value: "corporate-healthcare",
+    label: "Corporate Healthcare",
+  },
+  {
+    value: "general-enquiry",
+    label: "General Enquiry",
+  },
 ];
 
 const companyTypes = [
@@ -37,20 +60,22 @@ const companyTypes = [
   "Other",
 ];
 
+const initialFormData = {
+  name: "",
+  organization: "",
+  email: "",
+  phone: "",
+  enquiry: "",
+  industry: "",
+  message: "",
+};
 
 export const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    company: "",
-    email: "",
-    phone: "",
-    enquiryType: "",
-    companyType: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -63,30 +88,45 @@ export const ContactForm = () => {
       ...prev,
       [name]: value,
     }));
+
+    if (error) {
+      setError("");
+    }
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setLoading(true);
+    setError("");
 
     try {
+      const form = e.currentTarget;
+      const payload = new FormData(form);
 
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: payload,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message || "Unable to submit your enquiry."
+        );
+      }
 
       setSubmitted(true);
-
-      setFormData({
-        fullName: "",
-        company: "",
-        email: "",
-        phone: "",
-        enquiryType: "",
-        companyType: "",
-        message: "",
-      });
+      setFormData(initialFormData);
     } catch (error) {
       console.error("Contact form submission failed:", error);
+
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Unable to send your enquiry. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -97,6 +137,7 @@ export const ContactForm = () => {
       id="contact-form"
       className="relative overflow-hidden bg-slate-50 py-24 lg:py-32"
     >
+      {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-sky-100/70 blur-3xl" />
 
@@ -106,6 +147,7 @@ export const ContactForm = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +179,10 @@ export const ContactForm = () => {
             you.
           </p>
         </motion.div>
+
+        {/* Main grid */}
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_0.34fr] lg:items-start">
+          {/* Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -150,6 +195,7 @@ export const ContactForm = () => {
             className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_25px_80px_rgba(15,23,42,0.08)] sm:p-8 lg:p-10"
           >
             <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-sky-100/60 blur-3xl" />
+
             <div className="relative">
               <AnimatePresence mode="wait">
                 {!submitted ? (
@@ -160,6 +206,7 @@ export const ContactForm = () => {
                     onSubmit={handleSubmit}
                     className="space-y-8"
                   >
+                    {/* Your details */}
                     <div>
                       <div className="flex items-center gap-3">
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600">
@@ -180,18 +227,18 @@ export const ContactForm = () => {
                       <div className="mt-6 grid gap-5 sm:grid-cols-2">
                         <FormField
                           label="Full Name"
-                          name="fullName"
+                          name="name"
                           placeholder="Your full name"
-                          value={formData.fullName}
+                          value={formData.name}
                           onChange={handleChange}
                           required
                         />
 
                         <FormField
                           label="Company / Organisation"
-                          name="company"
+                          name="organization"
                           placeholder="Company name"
-                          value={formData.company}
+                          value={formData.organization}
                           onChange={handleChange}
                         />
 
@@ -217,6 +264,8 @@ export const ContactForm = () => {
                     </div>
 
                     <div className="h-px bg-slate-100" />
+
+                    {/* Enquiry details */}
                     <div>
                       <div className="flex items-center gap-3">
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600">
@@ -237,8 +286,8 @@ export const ContactForm = () => {
                       <div className="mt-6 grid gap-5 sm:grid-cols-2">
                         <SelectField
                           label="What can we help with?"
-                          name="enquiryType"
-                          value={formData.enquiryType}
+                          name="enquiry"
+                          value={formData.enquiry}
                           onChange={handleChange}
                           options={enquiryTypes}
                           required
@@ -246,8 +295,8 @@ export const ContactForm = () => {
 
                         <SelectField
                           label="Industry"
-                          name="companyType"
-                          value={formData.companyType}
+                          name="industry"
+                          value={formData.industry}
                           onChange={handleChange}
                           options={companyTypes}
                         />
@@ -259,6 +308,7 @@ export const ContactForm = () => {
                           className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-slate-700"
                         >
                           How can we help?
+                          <span className="ml-1 text-sky-500">*</span>
                         </label>
 
                         <textarea
@@ -274,11 +324,26 @@ export const ContactForm = () => {
                       </div>
                     </div>
 
+                    {/* Error */}
+                    <AnimatePresence>
+                      {error && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm leading-6 text-red-700">
+                            {error}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Submit */}
                     <div className="border-t border-slate-100 pt-7">
                       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex max-w-md items-start gap-3">
-                          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-sky-500" />
-
                           <p className="text-xs leading-5 text-slate-500">
                             Your information is used only to respond to your
                             enquiry and understand how we can support your
@@ -353,7 +418,10 @@ export const ContactForm = () => {
 
                     <button
                       type="button"
-                      onClick={() => setSubmitted(false)}
+                      onClick={() => {
+                        setSubmitted(false);
+                        setError("");
+                      }}
                       className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-slate-500 transition-colors hover:text-sky-600"
                     >
                       Send another enquiry
@@ -364,6 +432,7 @@ export const ContactForm = () => {
             </div>
           </motion.div>
 
+          {/* Sidebar */}
           <motion.aside
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -504,7 +573,12 @@ const SelectField = ({
   onChange: (
     e: React.ChangeEvent<HTMLSelectElement>
   ) => void;
-  options: string[];
+  options:
+    | string[]
+    | {
+        value: string;
+        label: string;
+      }[];
   required?: boolean;
 }) => {
   return (
@@ -529,15 +603,23 @@ const SelectField = ({
           onChange={onChange}
           className="h-[50px] w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 px-4 pr-11 text-sm text-slate-900 outline-none transition-all focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-500/10"
         >
-          <option value="">
-            Select an option
-          </option>
+          <option value="">Select an option</option>
 
-          {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
+          {options.map((option) => {
+            if (typeof option === "string") {
+              return (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              );
+            }
+
+            return (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
         </select>
 
         <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />

@@ -1,5 +1,4 @@
 "use client";
-
 import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertCircle,
@@ -21,46 +20,53 @@ import type { FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 
 export const ContactUs = () => {
-  const [status, setStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
-
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (
+      e: FormEvent<HTMLFormElement>
+    ) => {
+      e.preventDefault();
 
-    setLoading(true);
-    setStatus("idle");
+      setLoading(true);
+      setStatus("idle");
+      setErrorMessage("");
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+      const form = e.currentTarget;
+      const formData = new FormData(form);
 
-    try {
-      const res = await fetch(form.action, {
-        method: form.method,
-        headers: {
-          Accept: "application/json",
-        },
-        body: formData,
-      });
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
+        });
 
-      const data = await res.json();
+        const data = await res.json();
 
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        console.error("Formspree error:", data);
+        if (res.ok && data.success) {
+          setStatus("success");
+          form.reset();
+        } else {
+          console.error("Contact form error:", data);
+
+          setStatus("error");
+          setErrorMessage(
+            data.message ||
+              "We couldn't send your enquiry. Please try again."
+          );
+        }
+      } catch (error) {
+        console.error("Network error:", error);
+
         setStatus("error");
+        setErrorMessage(
+          "Unable to connect to our server. Please try again or contact us directly."
+        );
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Network error:", error);
-      setStatus("error");
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
 
   return (
     <section
@@ -87,8 +93,6 @@ export const ContactUs = () => {
           viewport={{ once: true }}
           className="max-w-4xl"
         >
-          {/* Eyebrow */}
-
           <div className="flex items-center gap-3">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-sky-400/20 bg-sky-400/10">
               <MessageCircle className="h-3.5 w-3.5 text-sky-400" />
@@ -261,7 +265,33 @@ export const ContactUs = () => {
             <div className="pointer-events-none absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-sky-400/20 via-transparent to-blue-500/10 blur-xl" />
             <div className="relative rounded-[2rem] border border-white/10 bg-white p-6 shadow-[0_30px_100px_rgba(0,0,0,0.35)] sm:p-8 lg:p-10">
               <div className="flex flex-col gap-5 border-b border-slate-100 pb-7 sm:flex-row sm:items-start sm:justify-between">
+              {status === "error" && (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    height: 0,
+                    y: 8,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    height: "auto",
+                    y: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    height: 0,
+                    y: -8,
+                  }}
+                  className="flex items-start gap-3 rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-700"
+                >
+                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
 
+                  <span>
+                    {errorMessage ||
+                      "We couldn't send your enquiry. Please try again or contact us directly."}
+                  </span>
+                </motion.div>
+              )}
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-600">
                     Send an enquiry
@@ -283,31 +313,17 @@ export const ContactUs = () => {
               </div>
 
               <form
-                action="https://formspree.io/f/mkozydgn"
+                action="/api/contact"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="mt-8 space-y-5"
               >
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="New DocMarine Healthcare Enquiry"
-                />
-
-                <input
-                  type="text"
-                  name="_gotcha"
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Input
                     name="name"
                     label="Full Name"
                     placeholder="John Doe"
-                    disabled={loading}
+                    disabled={loading}              
                   />
 
                   <Input
@@ -315,16 +331,16 @@ export const ContactUs = () => {
                     label="Email Address"
                     type="email"
                     placeholder="you@email.com"
-                    disabled={loading}
+                    disabled={loading}              
                   />
                 </div>
 
                 <Input
                   name="organization"
-                  label="Organization"
-                  placeholder="Hospital, clinic or organization"
+                  label="Organization (Optional)"
+                  placeholder="Hospital / Clinic name"
                   required={false}
-                  disabled={loading}
+                  disabled={loading}              
                 />
 
                 <Select
@@ -346,10 +362,6 @@ export const ContactUs = () => {
 
                   <option value="procurement">
                     Procurement & Supply
-                  </option>
-
-                  <option value="healthcare-solutions">
-                    Healthcare Solutions
                   </option>
 
                   <option value="general-enquiry">
