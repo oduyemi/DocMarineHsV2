@@ -38,10 +38,6 @@ export const Header = () => {
   const [requestOpen, setRequestOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  /* ------------------------------------------------------------
-     Detect page scroll
-  ------------------------------------------------------------ */
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -56,9 +52,6 @@ export const Header = () => {
     };
   }, []);
 
-  /* ------------------------------------------------------------
-     Lock body scroll when mobile menu is open
-  ------------------------------------------------------------ */
 
   useEffect(() => {
     if (mobileOpen) {
@@ -71,10 +64,6 @@ export const Header = () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
-
-  /* ------------------------------------------------------------
-     Close mobile navigation after route change
-  ------------------------------------------------------------ */
 
   useEffect(() => {
     setMobileOpen(false);
@@ -118,50 +107,42 @@ export const Header = () => {
               }
             `}
           >
-      {/* =====================================================
-    LOGO
-===================================================== */}
+            <Link
+              href="/"
+              className="group flex items-center gap-3"
+              aria-label="DocMarine Health Services home"
+            >
+              <div className="relative flex items-center">
+                {/* Subtle logo glow */}
+                <div className="absolute inset-0 rounded-xl bg-sky-400/10 blur-xl transition-opacity duration-300 group-hover:bg-sky-400/20" />
 
-<Link
-  href="/"
-  className="group flex items-center gap-3"
-  aria-label="DocMarine Health Services home"
->
-  <div className="relative flex items-center">
-    {/* Subtle logo glow */}
-    <div className="absolute inset-0 rounded-xl bg-sky-400/10 blur-xl transition-opacity duration-300 group-hover:bg-sky-400/20" />
+                <img
+                  src="/images/logo/logo.png"
+                  alt="DocMarine Health Services"
+                  className="
+                    relative
+                    h-28
+                    w-auto
+                    max-w-[190px]
+                    object-contain
+                    scale-110
+                    transition-transform
+                    duration-300
+                    group-hover:scale-[1.13]
+                  "
+                />
+              </div>
 
-    <img
-      src="/images/logo/logo.png"
-      alt="DocMarine Health Services"
-      className="
-        relative
-        h-28
-        w-auto
-        max-w-[190px]
-        object-contain
-        scale-110
-        transition-transform
-        duration-300
-        group-hover:scale-[1.13]
-      "
-    />
-  </div>
+              <div className="hidden sm:block">
+                <p className="text-[15px] font-bold leading-tight tracking-tight text-slate-900">
+                  DocMarine
+                </p>
 
-  <div className="hidden sm:block">
-    <p className="text-[15px] font-bold leading-tight tracking-tight text-slate-900">
-      DocMarine
-    </p>
-
-    <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.17em] text-sky-600">
-      Health Services
-    </p>
-  </div>
-</Link>
-
-            {/* =====================================================
-                DESKTOP NAVIGATION
-            ===================================================== */}
+                <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.17em] text-sky-600">
+                  Health Services
+                </p>
+              </div>
+            </Link>
 
             <nav
               className="hidden items-center gap-1 lg:flex"
@@ -203,10 +184,6 @@ export const Header = () => {
               })}
             </nav>
 
-            {/* =====================================================
-                DESKTOP ACTIONS
-            ===================================================== */}
-
             <div className="hidden items-center gap-3 lg:flex">
               <div className="mr-2 hidden items-center gap-2 xl:flex">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600">
@@ -237,10 +214,6 @@ export const Header = () => {
               </motion.button>
             </div>
 
-            {/* =====================================================
-                MOBILE MENU BUTTON
-            ===================================================== */}
-
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
@@ -260,10 +233,6 @@ export const Header = () => {
             </button>
           </div>
         </div>
-
-        {/* =========================================================
-            MOBILE NAVIGATION
-        ========================================================= */}
 
         <AnimatePresence>
           {mobileOpen && (
@@ -378,10 +347,6 @@ export const Header = () => {
           )}
         </AnimatePresence>
       </header>
-
-      {/* =========================================================
-          REQUEST INFORMATION DIALOG
-      ========================================================= */}
 
       <AnimatePresence>
         {requestOpen && (
