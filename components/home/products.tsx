@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -10,6 +9,7 @@ import {
 } from "lucide-react";
 import { products } from "@/data/products";
 import { ProductCard } from "./productCard";
+
 
 export const Products = () => {
   const featuredProducts = products.slice(0, 6);

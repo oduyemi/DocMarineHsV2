@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -12,6 +11,8 @@ import {
   Activity,
 } from "lucide-react";
 import Link from "next/link";
+
+
 
 const reasons = [
   {
